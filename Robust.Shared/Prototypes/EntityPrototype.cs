@@ -148,6 +148,8 @@ namespace Robust.Shared.Prototypes
         [AbstractDataField]
         public bool Abstract { get; private set; }
 
+        public object Nodes { get; set; }
+
         /// <summary>
         /// A dictionary mapping the component type list to the YAML mapping containing their settings.
         /// </summary>
@@ -155,8 +157,9 @@ namespace Robust.Shared.Prototypes
         [AlwaysPushInheritance]
         public ComponentRegistry Components = new();
 
-        public EntityPrototype()
+        public EntityPrototype(object nodes)
         {
+            Nodes = nodes;
             // Everybody gets a transform component!
             Components.Add("Transform", new ComponentRegistryEntry(new TransformComponent(), new MappingDataNode()));
             // And a metadata component too!
@@ -401,6 +404,10 @@ namespace Robust.Shared.Prototypes
                 return prototype.DataCache.TryGetValue(field, out value);
             }
         }*/
+        public bool TryPath(string start, string target, out object o)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     public sealed class ComponentRegistry : Dictionary<string, EntityPrototype.ComponentRegistryEntry>, IEntityLoadContext
