@@ -90,6 +90,11 @@ namespace Robust.Shared.Localization
             return messageId;
         }
 
+        public string GetString(string messageId, (string, string? Name) arg)
+        {
+            throw new NotImplementedException();
+        }
+
         public string GetString(string messageId, (string, object) arg1, (string, object) arg2)
         {
             if (_defaultCulture == null)
@@ -101,6 +106,11 @@ namespace Robust.Shared.Localization
             _logSawmill.Warning("Unknown messageId ({culture}): {messageId}", _defaultCulture.Value.Item1.Name,
                 messageId);
             return messageId;
+        }
+
+        public bool TryGetString(string messageId, [NotNullWhen(true)] out string? value, (string, string? Name) arg)
+        {
+            throw new NotImplementedException();
         }
 
         public string GetString(string messageId, params (string, object)[] args)
