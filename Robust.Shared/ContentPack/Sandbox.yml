@@ -8,6 +8,8 @@ AllowedVerifierErrors:
 - InitOnly
 # ILVerify has problems with Default Interface Methods so...
 - InterfaceMethodNotImplemented
+# C# 12 Inline Arrays return ReadOnlySpan which ILVerify thinks is a return byref to stack
+- ReturnPtrToStack
 
 # EVERYTHING in these namespaces is allowed.
 # Note that, due to a historical bug in the sandbox, any namespace _prefixed_ with one of these
