@@ -115,7 +115,7 @@ public readonly struct ResPath : IEquatable<ResPath>
     {
         get
         {
-            if (IsSelf)
+            if (IsSelf || string.IsNullOrEmpty(CanonPath))
             {
                 return Self;
             }
@@ -212,7 +212,7 @@ public readonly struct ResPath : IEquatable<ResPath>
     {
         get
         {
-            if (CanonPath is "." or "")
+            if (string.IsNullOrEmpty(CanonPath) || CanonPath == ".")
             {
                 return ".";
             }
@@ -383,7 +383,7 @@ public readonly struct ResPath : IEquatable<ResPath>
     /// </summary>
     /// <seealso cref="IsRelative" />
     /// <seealso cref="ToRootedPath"/>
-    public bool IsRooted => CanonPath.Length > 0 && CanonPath[0] == '/';
+    public bool IsRooted => !string.IsNullOrEmpty(CanonPath) && CanonPath[0] == '/';
 
     /// <summary>
     ///     Returns true if the path is not rooted.

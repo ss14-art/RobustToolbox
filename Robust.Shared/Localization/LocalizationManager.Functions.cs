@@ -433,8 +433,13 @@ namespace Robust.Shared.Localization
             };
         }
 
-        public static IFluentType FluentFromObject(this object obj, LocContext context)
+        public static IFluentType FluentFromObject(this object? obj, LocContext context)
         {
+            if (obj == null)
+            {
+                return FluentNone.None;
+            }
+
             return obj switch
             {
                 ILocValue wrap => new FluentLocWrapperType(wrap, context),

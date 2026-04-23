@@ -43,7 +43,23 @@ namespace Robust.Shared.Localization
         /// <summary>
         ///     Version of <see cref="GetString(string)"/> that supports arguments.
         /// </summary>
-        public static string GetString(string messageId, params (string,object)[] args)
+        public static string GetString(string messageId, (string, object) arg)
+        {
+            return LocalizationManager.GetString(messageId, arg);
+        }
+
+        /// <summary>
+        ///     Version of <see cref="GetString(string)"/> that supports arguments.
+        /// </summary>
+        public static string GetString(string messageId, (string, object) arg1, (string, object) arg2)
+        {
+            return LocalizationManager.GetString(messageId, arg1, arg2);
+        }
+
+        /// <summary>
+        ///     Version of <see cref="GetString(string)"/> that supports arguments.
+        /// </summary>
+        public static string GetString(string messageId, params (string, object)[] args)
         {
             return LocalizationManager.GetString(messageId, args);
         }

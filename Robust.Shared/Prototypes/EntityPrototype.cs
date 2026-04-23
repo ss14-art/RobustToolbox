@@ -157,13 +157,19 @@ namespace Robust.Shared.Prototypes
         [AlwaysPushInheritance]
         public ComponentRegistry Components = new();
 
-        public EntityPrototype(object nodes)
+        public EntityPrototype()
         {
-            Nodes = nodes;
+            // Initialize default nodes mapping to satisfy nullability contracts.
+            Nodes = new MappingDataNode();
             // Everybody gets a transform component!
             Components.Add("Transform", new ComponentRegistryEntry(new TransformComponent(), new MappingDataNode()));
             // And a metadata component too!
             Components.Add("MetaData", new ComponentRegistryEntry(new MetaDataComponent(), new MappingDataNode()));
+        }
+
+        public EntityPrototype(object nodes) : this()
+        {
+            Nodes = nodes;
         }
 
         void ISerializationHooks.AfterDeserialization()

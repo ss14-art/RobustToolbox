@@ -57,7 +57,7 @@ namespace Robust.Shared.Localization
         /// <summary>
         ///     Version of <see cref="GetString(string)"/> that supports arguments.
         /// </summary>
-        string GetString(string messageId, (string, string? Name) arg);
+        string GetString(string messageId, (string, object) arg);
 
         /// <summary>
         ///     Version of <see cref="GetString(string)"/> that supports arguments.
@@ -71,7 +71,7 @@ namespace Robust.Shared.Localization
         ///     Does not log a warning if the message does not exist.
         ///     Does however log errors if any occur while formatting.
         /// </remarks>
-        bool TryGetString(string messageId, [NotNullWhen(true)] out string? value, (string, string? Name) arg);
+        bool TryGetString(string messageId, [NotNullWhen(true)] out string? value, (string, object) arg);
 
         /// <summary>
         ///     Try- version of <see cref="GetString(string, (string, object)[])"/>

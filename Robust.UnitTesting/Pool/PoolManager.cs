@@ -158,7 +158,19 @@ public class PoolManager<TPair> : BasePoolManager where TPair : class, ITestPair
 
         settings ??= DefaultSettings;
 
-        testContext ??= new NUnitTestContextWrap(TestContext.CurrentContext, TestContext.Out);
+        if (testContext == null)
+        {
+            try
+            {
+                // This property access will throw if NUnit is not properly initialized for a test run.
+                _ = TestContext.CurrentContext.WorkDirectory;
+                testContext = new NUnitTestContextWrap(TestContext.CurrentContext, TestContext.Out);
+            }
+            catch (InvalidOperationException)
+            {
+                testContext = new ExternalTestContext("Unknown", Console.Out);
+            }
+        }
         var testOut = testContext.Out;
 
         DieIfPoolFailure();
@@ -292,7 +304,16 @@ we are just going to end this here to save a lot of time. This is the exception 
 
             TextWriter? gravestone = null;
             if (context is NUnitTestContextWrap)
-                gravestone = File.CreateText($"{TestContext.CurrentContext.WorkDirectory}/gravestone-{id}.txt");
+            {
+                try
+                {
+                    gravestone = File.CreateText($"{TestContext.CurrentContext.WorkDirectory}/gravestone-{id}.txt");
+                }
+                catch (InvalidOperationException)
+                {
+                    // This can happen if we're technically using NUnitTestContextWrap but NUnit isn't fully initialized.
+                }
+            }
 
             await pair.Init(id, this, settings, testOut, gravestone);
             pair.Use();

@@ -701,6 +701,8 @@ Types:
     ExtensionAttribute: { All: True }
     ExtensionMarkerAttribute: { All: True }
     IAsyncStateMachine: { All: True }
+    InlineArrayAttribute: { All: True }
+    InlineArray2`1: { All: True }
     InternalsVisibleToAttribute: { All: True }
     InterpolatedStringHandlerAttribute: { All: True }
     InterpolatedStringHandlerArgumentAttribute: { All: True }
@@ -718,6 +720,10 @@ Types:
     RuntimeCompatibilityAttribute: { All: True }
     RuntimeHelpers: { All: True }
     SwitchExpressionException: { All: True }
+    Unsafe:
+      Methods:
+        - "!!1& As<,>(!!0&)"
+        - "!!0& AsRef<>(in !!0)"
     TaskAwaiter: { All: True }
     TaskAwaiter`1: { All: True }
     TupleElementNamesAttribute: { All: True }
@@ -730,6 +736,10 @@ Types:
       Methods:
         - "System.Span`1<!!0> AsSpan<>(System.Collections.Generic.List`1<!!0>)"
     InAttribute: { All: True }
+    MemoryMarshal:
+      Methods:
+        - "System.Span`1<!!1> Cast<,>(System.Span`1<!!0>)"
+        - "System.Span`1<!!0> CreateSpan<>(!!0&, int)"
     UnmanagedType: { } # `unmanaged` constraint in C# modreqs with this.
   System.Runtime.Versioning:
     TargetFrameworkAttribute: { All: True }
