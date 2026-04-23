@@ -2,6 +2,7 @@ using System;
 using JetBrains.Annotations;
 using Robust.Shared.IoC;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.Manager.Attributes;
 using Robust.Shared.Timing;
 using Robust.Shared.ViewVariables;
@@ -31,6 +32,7 @@ namespace Robust.Shared.GameObjects
     /// </para>
     /// </remarks>
     [CopyByRef]
+    [Serializable, NetSerializable]
     public readonly struct EntityUid : IEquatable<EntityUid>, IComparable<EntityUid>, ISpanFormattable
     {
         public readonly int Id;

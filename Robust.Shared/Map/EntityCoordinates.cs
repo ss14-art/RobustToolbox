@@ -5,6 +5,7 @@ using Robust.Shared.GameObjects;
 using Robust.Shared.IoC;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Maths;
+using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.Manager.Attributes;
 using Robust.Shared.Utility;
 
@@ -14,6 +15,7 @@ namespace Robust.Shared.Map
     ///     A set of coordinates relative to another entity.
     /// </summary>
     [PublicAPI, DataRecord]
+    [Serializable, NetSerializable]
     public readonly partial record struct EntityCoordinates : ISpanFormattable
     {
         public static readonly EntityCoordinates Invalid = new(EntityUid.Invalid, Vector2.Zero);
