@@ -125,7 +125,7 @@ namespace Robust.Shared.Reflection
             foreach (string prefix in TypePrefixes)
             {
                 string appendedName = prefix + name;
-                foreach (var assembly in Assemblies)
+                foreach (var assembly in assemblies)
                 {
                     var theType = assembly.GetType(appendedName);
                     if (theType != null)

@@ -33,6 +33,11 @@ namespace Robust.Shared.Testing
             throw new NotSupportedException();
         }
 
+        public void AddModWithoutInit(Assembly assembly)
+        {
+            Mods.Add(new ModInfo(assembly));
+        }
+
         public bool TryLoadAssembly(string assemblyName)
         {
             throw new NotSupportedException();
