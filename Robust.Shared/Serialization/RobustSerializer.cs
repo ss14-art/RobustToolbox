@@ -135,7 +135,7 @@ namespace Robust.Shared.Serialization
 
         internal void GetHashManifest(Stream stream, bool writeNewline=false)
         {
-            _serializer.GetHashManifest(stream, writeNewline);
+            // _serializer.GetHashManifest(stream, writeNewline);
         }
 
         public (byte[] Hash, byte[] Package) GetStringSerializerPackage() => MappedStringSerializer.GeneratePackage();

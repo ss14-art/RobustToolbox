@@ -15,7 +15,7 @@ internal sealed class NetUnsafeFloatSerializer : IStaticTypeSerializer
 {
     public bool Handles(Type type)
     {
-        return type == typeof(UnsafeFloat) || type == typeof(UnsafeDouble) || type == typeof(UnsafeHalf);
+        return type == typeof(UnsafeFloat) || type == typeof(UnsafeDouble) /*|| type == typeof(UnsafeHalf)*/;
     }
 
     public IEnumerable<Type> GetSubtypes(Type type)
@@ -63,6 +63,7 @@ internal sealed class NetUnsafeFloatSerializer : IStaticTypeSerializer
         value = readValue;
     }
 
+    /*
     [UsedImplicitly]
     private static void Write(Stream stream, UnsafeHalf value)
     {
@@ -75,4 +76,5 @@ internal sealed class NetUnsafeFloatSerializer : IStaticTypeSerializer
         Primitives.ReadPrimitive(stream, out Half readValue);
         value = readValue;
     }
+    */
 }

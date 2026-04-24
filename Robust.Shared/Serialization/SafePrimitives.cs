@@ -35,6 +35,7 @@ internal static class SafePrimitives
     /// <summary>
     /// Read a double value from the stream, flushing NaNs to zero.
     /// </summary>
+/*
     [UsedImplicitly]
     public static void ReadPrimitive(Stream stream, out Half value)
     {
@@ -42,4 +43,5 @@ internal static class SafePrimitives
 
         value = Half.IsNaN(readDouble) ? Half.Zero : readDouble;
     }
+*/
 }

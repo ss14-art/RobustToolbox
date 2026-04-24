@@ -588,7 +588,8 @@ namespace Robust.Shared.Serialization
         {
             // Get context and then call WriteMappedString to do the actual work.
 
-            var contextIdx = serializer.RegisterContext(this);
+            // var contextIdx = serializer.RegisterContext(this);
+            var contextIdx = 0;
 
             var method = typeof(RobustMappedStringSerializer).GetMethod(
                 nameof(WriteMappedString),
@@ -615,7 +616,8 @@ namespace Robust.Shared.Serialization
         {
             // Get context and then call ReadMappedString to do the actual work.
 
-            var contextIdx = serializer.RegisterContext(this);
+            // var contextIdx = serializer.RegisterContext(this);
+            var contextIdx = 0;
 
             var method = typeof(RobustMappedStringSerializer).GetMethod(
                 nameof(ReadMappedString),

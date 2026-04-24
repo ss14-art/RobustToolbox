@@ -169,7 +169,7 @@ public sealed class CheckpointState : IComparable<CheckpointState>
         if (Detached.Count == 0)
             return;
 
-        var attachedStates = new EntityState[state.EntityStates.Value.Count - Detached.Count];
+        var attachedStates = new EntityState[state.EntityStates.Count - Detached.Count];
         DetachedStates = new EntityState[Detached.Count];
 
         int i = 0, j = 0;

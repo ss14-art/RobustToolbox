@@ -16,7 +16,7 @@ namespace Robust.Shared.GameObjects
 
         public NetListAsArray<ComponentChange> ComponentChanges { get; }
 
-        public bool Empty => (ComponentChanges.Value is null or { Count: 0 }) && NetComponents == null;
+        public bool Empty => (ComponentChanges.Count == 0) && NetComponents == null;
 
         public readonly GameTick EntityLastModified;
 
