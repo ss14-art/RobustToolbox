@@ -722,8 +722,9 @@ Types:
     SwitchExpressionException: { All: True }
     Unsafe:
       Methods:
-        - "!!1& As<,>(!!0&)"
-        - "!!0& AsRef<>(in !!0)"
+        - "ref !!1 As<,>(ref !!0)"
+        - "ref !!0 AsRef<>(ref !!0)"
+        - "ref !!0 Add<>(ref !!0, int)"
     TaskAwaiter: { All: True }
     TaskAwaiter`1: { All: True }
     TupleElementNamesAttribute: { All: True }
@@ -739,7 +740,8 @@ Types:
     MemoryMarshal:
       Methods:
         - "System.Span`1<!!1> Cast<,>(System.Span`1<!!0>)"
-        - "System.Span`1<!!0> CreateSpan<>(!!0&, int)"
+        - "System.Span`1<!!0> CreateSpan<>(ref !!0, int)"
+        - "System.ReadOnlySpan`1<!!0> CreateReadOnlySpan<>(ref !!0, int)"
     UnmanagedType: { } # `unmanaged` constraint in C# modreqs with this.
   System.Runtime.Versioning:
     TargetFrameworkAttribute: { All: True }
