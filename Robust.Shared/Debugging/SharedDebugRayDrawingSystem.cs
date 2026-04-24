@@ -52,7 +52,9 @@ public abstract class SharedDebugRayDrawingSystem : EntitySystem
     /// This is only called at the main thread.
     /// Note that on release builds (!DEBUG), this function is never called.
     /// </summary>
-    protected abstract void ReceiveLocalRayAtMainThread(DebugRayData drd);
+    protected virtual void ReceiveLocalRayAtMainThread(DebugRayData drd)
+    {
+    }
 
     public readonly record struct DebugRayData(Ray Ray, float MaxLength, RayCastResults? Results, bool ServerSide, MapId Map);
 #endif
