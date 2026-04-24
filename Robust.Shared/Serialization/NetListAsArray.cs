@@ -7,7 +7,7 @@ namespace Robust.Shared.Serialization
     /// <summary>
     ///     A wrapper for a list that serializes as an array.
     /// </summary>
-    [Serializable, NetSerializable]
+    [Serializable]
     public readonly struct NetListAsArray<T>
     {
         public readonly T[] Value;

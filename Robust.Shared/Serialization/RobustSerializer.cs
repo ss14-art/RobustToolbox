@@ -78,6 +78,7 @@ namespace Robust.Shared.Serialization
             _initialized = true;
 
             var types = _reflectionManager.FindTypesWithAttribute<NetSerializableAttribute>()
+                .Where(x => !x.IsGenericTypeDefinition)
                 .OrderBy(x => x.FullName, StringComparer.InvariantCulture)
                 .ToList();
 
