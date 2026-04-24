@@ -9,6 +9,7 @@ using Robust.Shared.Utility;
 using System.Threading.Tasks;
 using Robust.Shared;
 using Robust.Shared.GameObjects;
+using Robust.Shared.Serialization;
 using Robust.Shared.Replays;
 using Robust.Shared.Upload;
 using static Robust.Shared.Replays.ReplayMessage;
