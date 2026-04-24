@@ -59,7 +59,7 @@ public sealed partial class ReplayLoadManager
 
         var i = 0;
         var entStates = checkpoint.FullState.EntityStates.Value;
-        var total = entStates.Count;
+        var total = entStates.Length;
         List<EntityUid> entities = new(total);
 
         await callback(i, total, LoadingState.Spawning, true);

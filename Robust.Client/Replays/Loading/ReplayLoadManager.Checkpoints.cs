@@ -116,7 +116,7 @@ public sealed partial class ReplayLoadManager
         UpdateMessages(messages[0], uploadedFiles, prototypes, cvars, detachQueue, ref timeBase, true);
 
         var entSpan = state0.EntityStates.Value;
-        Dictionary<NetEntity, EntityState> entStates = new(entSpan.Count);
+        Dictionary<NetEntity, EntityState> entStates = new(entSpan.Length);
         foreach (var entState in entSpan)
         {
             var modifiedState = AddImplicitData(entState);
@@ -127,7 +127,7 @@ public sealed partial class ReplayLoadManager
 
         await callback(0, states.Count, LoadingState.ProcessingFiles, true);
         var playerSpan = state0.PlayerStates.Value;
-        Dictionary<NetUserId, SessionState> playerStates = new(playerSpan.Count);
+        Dictionary<NetUserId, SessionState> playerStates = new(playerSpan.Length);
         foreach (var player in playerSpan)
         {
             playerStates.Add(player.UserId, player);
@@ -141,7 +141,7 @@ public sealed partial class ReplayLoadManager
             Array.Empty<NetEntity>());
         checkPoints.Add(new CheckpointState(state0, timeBase, cvars, 0, detached));
 
-        DebugTools.Assert(state0.EntityDeletions.Value.Count == 0);
+        DebugTools.Assert(state0.EntityDeletions.Value.Length == 0);
         var empty = Array.Empty<NetEntity>();
 
         TimeSpan GetTime(GameTick tick)

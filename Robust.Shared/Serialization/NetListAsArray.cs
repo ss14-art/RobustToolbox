@@ -14,6 +14,8 @@ namespace Robust.Shared.Serialization
 
         public int Count => Value?.Length ?? 0;
 
+        public bool HasContents => Value != null && Value.Length > 0;
+
         public ReadOnlySpan<T> Span => new ReadOnlySpan<T>(Value);
 
         public NetListAsArray(T[] value)
