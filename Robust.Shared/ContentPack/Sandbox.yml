@@ -723,8 +723,11 @@ Types:
     Unsafe:
       Methods:
         - "ref !!1 As<,>(ref !!0)"
+        - "!!1 As<,>(object)"
         - "ref !!0 AsRef<>(ref !!0)"
         - "ref !!0 Add<>(ref !!0, int)"
+        - "ref !!0 Add<>(ref !!0, nint)"
+        - "ref !!0 AddByteOffset<>(ref !!0, nint)"
     TaskAwaiter: { All: True }
     TaskAwaiter`1: { All: True }
     TupleElementNamesAttribute: { All: True }
@@ -742,6 +745,8 @@ Types:
         - "System.Span`1<!!1> Cast<,>(System.Span`1<!!0>)"
         - "System.Span`1<!!0> CreateSpan<>(ref !!0, int)"
         - "System.ReadOnlySpan`1<!!0> CreateReadOnlySpan<>(ref !!0, int)"
+        - "ref !!0 GetReference<>(System.ReadOnlySpan`1<!!0>)"
+        - "ref !!0 GetReference<>(System.Span`1<!!0>)"
     UnmanagedType: { } # `unmanaged` constraint in C# modreqs with this.
   System.Runtime.Versioning:
     TargetFrameworkAttribute: { All: True }
