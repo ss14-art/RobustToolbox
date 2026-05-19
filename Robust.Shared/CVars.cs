@@ -363,6 +363,20 @@ namespace Robust.Shared
             CVarDef.Create("net.dos_fail_max_tracked", 10000, CVar.SERVERONLY);
 
         /// <summary>
+        /// Minimum delay in seconds between detailed decrypt failure log entries for the same IP/subnet.
+        /// Set to 0 or below to disable log sampling.
+        /// </summary>
+        public static readonly CVarDef<int> NetDecryptFailLogIntervalSeconds = // Forge-Change
+            CVarDef.Create("net.dos_fail_log_interval", 30, CVar.SERVERONLY); // Forge-Change
+
+        /// <summary>
+        /// Whether nonce replay-window checks are enabled for encrypted packets.
+        /// Disable only for diagnostics or compatibility testing.
+        /// </summary>
+        public static readonly CVarDef<bool> NetEncryptionDosProtection =
+            CVarDef.Create("net.encryption_dos_protection", false);
+
+        /// <summary>
         /// Add random fake network loss to all outgoing UDP network packets, as a ratio of how many packets to drop.
         /// 0 = no packet loss, 1 = all packets dropped
         /// </summary>
